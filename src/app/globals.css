@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+:root {
+  --canvas: #f4efe6;
+  --ink: #171512;
+  --muted: #6d675e;
+  --accent: #a4492d;
+  --rule: #cdc4b6;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  background: var(--ink);
+  color: var(--canvas);
+  left: 1rem;
+  padding: 0.75rem 1rem;
+  position: fixed;
+  top: 1rem;
+  transform: translateY(-200%);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.foundation {
+  margin: 0 auto;
+  max-width: 74rem;
+  min-height: 100vh;
+  padding: clamp(5rem, 12vw, 10rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 9vw, 7.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  margin: 0;
+  max-width: 11ch;
+}
+
+.lede {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.65;
+  margin: clamp(3rem, 8vw, 7rem) 0 2rem auto;
+  max-width: 34rem;
+  padding-top: 1.25rem;
+}
+
+.text-link {
+  display: block;
+  font-weight: 700;
+  margin-left: auto;
+  padding: 0.35rem 0;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
+  width: fit-content;
+}
+
+.text-link:active {
+  transform: translateY(2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
