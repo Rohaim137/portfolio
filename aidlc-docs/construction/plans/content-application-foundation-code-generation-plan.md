@@ -63,107 +63,107 @@ This document is the single source of truth for Unit 1 Code Generation.
 
 ### Step 3: Domain contracts and configuration
 
-- [ ] Create Unit 1 domain types under `src/lib/content-application-foundation/domain/`.
-- [ ] Create typed site configuration with the verified GitHub URL and pending LinkedIn, X, and email states.
-- [ ] Create discriminated unions for publication, destinations, validation, media, and optional contribution data.
-- [ ] Keep serializable view-model types separate from server-only adapters.
+- [x] Create Unit 1 domain types under `src/lib/content-application-foundation/domain/`.
+- [x] Create typed site configuration with the verified GitHub URL and pending LinkedIn, X, and email states.
+- [x] Create discriminated unions for publication, destinations, validation, media, and optional contribution data.
+- [x] Keep serializable view-model types separate from server-only adapters.
 
 **Story mapping**: US-010; supports US-002 through US-009
 
 ### Step 4: Safe source and path adapters
 
-- [ ] Create server-only collection scanning and safe file-reading adapters under `src/lib/content-application-foundation/source/`.
-- [ ] Enforce configured roots, supported extensions, deterministic enumeration, traversal rejection, and symbolic-link containment.
-- [ ] Return workspace-relative diagnostic paths.
+- [x] Create server-only collection scanning and safe file-reading adapters under `src/lib/content-application-foundation/source/`.
+- [x] Enforce configured roots, supported extensions, deterministic enumeration, traversal rejection, and symbolic-link containment.
+- [x] Return workspace-relative diagnostic paths.
 
 **Story mapping**: US-010
 
 ### Step 5: Schemas and aggregated diagnostics
 
-- [ ] Create schemas under `src/lib/content-application-foundation/validation/` for site, project, post, reading, document, media, and generated contribution data.
-- [ ] Create stable project-owned diagnostic codes, collector, sorting, grouping, and terminal formatting.
-- [ ] Aggregate detectable issues instead of stopping at the first content error.
+- [x] Create schemas under `src/lib/content-application-foundation/validation/` for site, project, post, reading, document, media, and generated contribution data.
+- [x] Create stable project-owned diagnostic codes, collector, sorting, grouping, and terminal formatting.
+- [x] Aggregate detectable issues instead of stopping at the first content error.
 
 **Story mapping**: US-010
 
 ### Step 6: Pure business policies
 
-- [ ] Implement slug syntax and filename agreement, duplicate indexing, visibility, ISO calendar validation, deterministic ordering, URL protocol rules, reading detail eligibility, document path rules, and social destination resolution.
-- [ ] Implement the production guard that forbids draft inclusion.
-- [ ] Preserve `demo` state without enforcing a permanent demo-count invariant.
+- [x] Implement slug syntax and filename agreement, duplicate indexing, visibility, ISO calendar validation, deterministic ordering, URL protocol rules, reading detail eligibility, document path rules, and social destination resolution.
+- [x] Implement the production guard that forbids draft inclusion.
+- [x] Preserve `demo` state without enforcing a permanent demo-count invariant.
 
 **Story mapping**: US-010; supports US-003, US-005, US-007 through US-009
 
 ### Step 7: Curated content compilation
 
-- [ ] Implement front-matter extraction and the MDX safety inspection boundary.
-- [ ] Implement the selected compatible build-time Markdown or MDX compiler adapter.
-- [ ] Reject imports, exports, scripts, unsafe raw HTML, executable URLs, and undeclared components.
-- [ ] Derive headings with deterministic anchors and reading-time estimates.
+- [x] Implement front-matter extraction and the MDX safety inspection boundary.
+- [x] Implement the selected compatible build-time Markdown or MDX compiler adapter.
+- [x] Reject imports, exports, scripts, unsafe raw HTML, executable URLs, and undeclared components.
+- [x] Derive headings with deterministic anchors and reading-time estimates.
 
 **Story mapping**: US-010; supports US-004 and US-006
 
 ### Step 8: Build context, memoization, and bounded work
 
-- [ ] Implement `BuildContext`, process-scoped content-fingerprint memoization, and a bounded work scheduler.
-- [ ] Ensure concurrency never changes result or diagnostic order.
-- [ ] Expose test instrumentation without leaking it into route models.
+- [x] Implement `BuildContext`, process-scoped content-fingerprint memoization, and a bounded work scheduler.
+- [x] Ensure concurrency never changes result or diagnostic order.
+- [x] Expose test instrumentation without leaking it into route models.
 
 **Story mapping**: US-010, US-014 support
 
 ### Step 9: Content repositories and application services
 
-- [ ] Implement project, blog, reading, and document repositories.
-- [ ] Implement published list, featured or latest list, detail lookup, static slug, grouping, and explicit empty-result behavior.
-- [ ] Implement `PortfolioQueryService` and dormant `ContributionDataReader` with no network access.
+- [x] Implement project, blog, reading, and document repositories.
+- [x] Implement published list, featured or latest list, detail lookup, static slug, grouping, and explicit empty-result behavior.
+- [x] Implement `PortfolioQueryService` and dormant `ContributionDataReader` with no network access.
 
 **Story mapping**: US-010; supports US-002 through US-009
 
 ### Step 10: Metadata and discovery services
 
-- [ ] Implement index and detail metadata factories, local social-image fallback, canonical gating, sitemap entries, and robots definition.
-- [ ] Connect the minimal route scaffold to validated site configuration and discovery services without adding Unit 2 presentation.
+- [x] Implement index and detail metadata factories, local social-image fallback, canonical gating, sitemap entries, and robots definition.
+- [x] Connect the minimal route scaffold to validated site configuration and discovery services without adding Unit 2 presentation.
 
 **Story mapping**: US-011
 
 ### Step 11: Business logic unit tests
 
-- [ ] Create focused tests under `tests/content-application-foundation/` for every business-rule category.
-- [ ] Cover success and relevant negative cases for slugs, duplicates, drafts, demos, dates, ordering, URLs, reading eligibility, documents, metadata, and contribution absence.
-- [ ] Verify timezone, locale, wall-clock, file-order, and network independence.
+- [x] Create focused tests under `tests/content-application-foundation/` for every business-rule category.
+- [x] Cover success and relevant negative cases for slugs, duplicates, drafts, demos, dates, ordering, URLs, reading eligibility, documents, metadata, and contribution absence.
+- [x] Verify timezone, locale, wall-clock, file-order, and network independence.
 
 **Story mapping**: US-010, US-011
 
 ### Step 12: Adapter and service integration tests
 
-- [ ] Test traversal and symbolic-link escape, unsupported files, malformed front matter, aggregated errors, curated compilation, caching call counts, bounded work, public-document assets, and static slugs.
-- [ ] Use temporary directories or isolated fixtures; never modify real content collections.
-- [ ] Verify that route-facing models contain no secrets or absolute paths.
+- [x] Test traversal and symbolic-link escape, unsupported files, malformed front matter, aggregated errors, curated compilation, caching call counts, bounded work, public-document assets, and static slugs.
+- [x] Use temporary directories or isolated fixtures; never modify real content collections.
+- [x] Verify that route-facing models contain no secrets or absolute paths.
 
 **Story mapping**: US-010, US-011, US-014 support
 
 ### Step 13: Capacity benchmark harness
 
-- [ ] Create an opt-in script that generates temporary deterministic fixtures for 250 records per collection and 1,000 media references.
-- [ ] Measure validation and production build time separately from dependency installation.
-- [ ] Report environment, fixture size, elapsed time, and the 120-second threshold.
+- [x] Create an opt-in script that generates temporary deterministic fixtures for 250 records per collection and 1,000 media references.
+- [x] Measure validation and production build time separately from dependency installation.
+- [x] Report environment, fixture size, elapsed time, and the 120-second threshold.
 
 **Story mapping**: US-014 support
 
 ### Step 14: Unit verification
 
-- [ ] Run formatting, linting, strict type checking, Unit 1 tests, core branch coverage, and the static production build.
-- [ ] Run or explicitly document the capacity benchmark result for the provided environment.
-- [ ] Inspect static output for draft content, secret values, absolute paths, and unexpected routes.
-- [ ] Resolve every Unit 1 failure before declaring generation complete.
+- [x] Run formatting, linting, strict type checking, Unit 1 tests, core branch coverage, and the static production build.
+- [x] Run or explicitly document the capacity benchmark result for the provided environment.
+- [x] Inspect static output for draft content, secret values, absolute paths, and unexpected routes.
+- [x] Resolve every Unit 1 failure before declaring generation complete.
 
 **Story mapping**: US-010, US-011, US-014 support
 
 ### Step 15: Documentation and handoff summary
 
-- [ ] Create or update the workspace `README.md` with supported local commands and Unit 1 content foundations.
-- [ ] Create `aidlc-docs/construction/content-application-foundation/code/code-summary.md` listing generated code, tests, decisions, verification evidence, and known Unit 2 or Unit 3 follow-ups.
-- [ ] Mark US-010 and US-011 implemented for Unit 1 and update AIDLC state.
+- [x] Create or update the workspace `README.md` with supported local commands and Unit 1 content foundations.
+- [x] Create `aidlc-docs/construction/content-application-foundation/code/code-summary.md` listing generated code, tests, decisions, verification evidence, and known Unit 2 or Unit 3 follow-ups.
+- [x] Mark US-010 and US-011 implemented for Unit 1 and update AIDLC state.
 
 **Story mapping**: US-010, US-011
 

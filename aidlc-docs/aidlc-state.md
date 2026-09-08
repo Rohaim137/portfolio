@@ -4,7 +4,7 @@
 - **Project Type**: Greenfield
 - **Start Date**: 2026-09-01T17:57:49Z
 - **Current Phase**: CONSTRUCTION
-- **Current Stage**: Unit 1 - Code Generation
+- **Current Stage**: Unit 2 - Functional Design
 - **Project Name**: Personal Portfolio Website
 
 ## Workspace State
@@ -35,7 +35,7 @@
 - [x] Workflow Planning
 - [x] Application Design
 - [x] Units Generation
-- [ ] Construction stages - Unit 1 in progress
+- [ ] Construction stages - Unit 2 in progress (Unit 1 complete)
 - [ ] Build and Test
 - [ ] Operations - Placeholder
 
@@ -44,7 +44,7 @@
 - `anti-ai-slop.md` - UI design constraints supplied by the user
 
 ## Next Step
-Execute Unit 1 Code Generation Step 3: domain contracts and typed site configuration.
+Create and obtain approval for the Unit 2 Functional Design plan.
 
 ## Requirements Analysis Status
 - **Depth**: Comprehensive
@@ -90,11 +90,12 @@ Execute Unit 1 Code Generation Step 3: domain contracts and typed site configura
 - **Unit Approval**: Approved by user on 2026-09-07
 
 ## Construction Status
-- **Current Unit**: Unit 1 - Content and Application Foundation
+- **Current Unit**: Unit 2 - Portfolio Experience
 - **Functional Design**: Approved by user on 2026-09-07
 - **NFR Requirements**: Approved by user on 2026-09-07
 - **NFR Design**: Approved by user on 2026-09-07
 - **Infrastructure Design**: Skipped for Unit 1 per approved plan
-- **Code Generation**: Plan approved; generation in progress
-- **Code Generation Progress**: Steps 1 and 2 complete; compatible dependencies, repository hygiene, strict project configuration, minimal accessible App Router routes, and static export are verified.
-- **Units 2 and 3**: Pending
+- **Unit 1 Code Generation**: Approved by user on 2026-09-09; all fifteen generation steps complete
+- **Code Generation Progress**: Unit 1 implementation and documentation complete; all 22 tests pass, core coverage is 100% statements/functions/lines and 92.56% branches, the capacity benchmark and static production export pass, and generated output contains no detected drafts, credential patterns, or absolute workspace paths.
+- **Unit 2 Functional Design**: Started after Unit 1 approval
+- **Unit 3**: Pending

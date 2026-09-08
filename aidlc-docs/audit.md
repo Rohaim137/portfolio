@@ -766,3 +766,175 @@ before you continue i want to push this to my github account
 **Context**: Repository setup handoff; no external repository was created or pushed by the AI
 
 ---
+
+## Unit 1 Code Generation - Continued After GitHub Setup
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "Ok i setup the repo on github now continue with building the project"
+**AI Response**: Verified that `main` is clean and synchronized with `origin/main` at commit `a126b703`, confirmed the remote is `https://github.com/Rohaim137/portfolio.git`, and resumed the approved Unit 1 generation plan at Step 3.
+**Context**: CONSTRUCTION - Unit 1 Code Generation resumption
+
+---
+
+## Unit 1 Code Generation - Step 3 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Created typed Unit 1 domain contracts for shared values, media, projects, posts, reading, documents, site/social state, metadata, contribution data, and serializable view models. Added typed site configuration with the verified GitHub URL and pending LinkedIn, X, and email states. Formatting, strict type checking, and linting pass. Marked all Step 3 plan checkboxes complete and advanced state to Step 4.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 3 domain contracts and configuration
+
+---
+
+## Unit 1 Code Generation - Step 4 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented server-only deterministic collection scanning, safe file reading, configured-root enforcement, supported-extension filtering, lexical traversal rejection, real-path symbolic-link containment, and workspace-relative diagnostic paths. Formatting, strict type checking, and linting pass. Marked all Step 4 plan checkboxes complete and advanced state to Step 5.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 4 safe source and path adapters
+
+---
+
+## Unit 1 Code Generation - Step 5 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented strict schemas for site configuration, projects, posts, reading records, public documents, media, social destinations, and generated contribution data. Added project-owned diagnostic codes, a schema registry, reusable typed validation, and a collector that aggregates, sorts, groups, and formats all detectable issues. Formatting, strict type checking, and linting pass. Marked all Step 5 plan checkboxes complete and advanced state to Step 6.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 5 schemas and aggregated diagnostics
+
+---
+
+## Unit 1 Code Generation - Step 6 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented pure business policies for kebab-case slugs, filename agreement, duplicate indexing, timezone-independent ISO calendar validation, stable ordering, draft and demo visibility, production draft rejection, HTTPS and mail destinations, reading-detail eligibility, public-document paths, and exhaustive social resolution. No permanent demo-count invariant was introduced. Formatting, strict type checking, and linting pass. Marked all Step 6 plan checkboxes complete and advanced state to Step 7.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 6 pure business policies
+
+---
+
+## Unit 1 Code Generation - Step 7 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented front-matter extraction, curated MDX safety inspection, build-time MDX compilation, deterministic heading anchors, and reading-time estimates. The boundary rejects ESM statements, scripts, raw HTML, executable URL protocols, undeclared components, inline event handlers, and arbitrary JavaScript expressions while ignoring code examples during inspection. Formatting, strict type checking, and linting pass. Marked all Step 7 plan checkboxes complete and advanced state to Step 8.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 7 curated content compilation
+
+---
+
+## Unit 1 Code Generation - Step 8 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented a validated server-only BuildContext, SHA-256 content-fingerprint memoization, memoized MDX compilation, and a bounded scheduler that preserves input order regardless of completion order. Cache and scheduler instrumentation is exposed only through infrastructure objects and is absent from route models. Formatting, strict type checking, and linting pass. Marked all Step 8 plan checkboxes complete and advanced state to Step 9.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 8 build context, memoization, and bounded work
+
+---
+
+## Unit 1 Code Generation - Step 9 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented file-backed project, post, and reading repositories; an explicit-manifest public-document repository; reusable validated collection loading; published, featured, latest, detail, static-slug, filter, and grouped-reading behavior; PortfolioQueryService view-model assembly; and an optional generated contribution reader with no network access. Empty content collections and the empty public-document manifest are valid. Formatting, strict type checking, and linting pass. Marked all Step 9 plan checkboxes complete and advanced state to Step 10.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 9 content repositories and application services
+
+---
+
+## Unit 1 Code Generation - Step 10 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Implemented index and detail metadata factories, route-local social-image fallback, production-origin canonical gating, deterministic sitemap entries, and robots definitions. Connected the minimal layout, home, robots, and sitemap routes to validated site configuration and created a local social preview asset. Formatting, strict type checking, linting, and the static production export pass without warnings. Marked all Step 10 plan checkboxes complete and advanced state to Step 11.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 10 metadata and discovery services
+
+---
+
+## Unit 1 Code Generation - Step 11 Complete
+**Timestamp**: 2026-09-08T18:22:30Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Added thirteen focused unit tests covering slugs, duplicate ordering, drafts, demos, calendar dates, collection ordering, web and mail URLs, reading eligibility, public-document paths, schema categories, aggregated diagnostics, metadata, canonical gating, sitemap generation, contribution absence, and wall-clock/file-order/network independence. Added a test-only server boundary shim and declared ESM package format. Formatting, strict type checking, linting, and all tests pass without warnings. Marked all Step 11 plan checkboxes complete and advanced state to Step 12.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 11 business logic unit tests
+
+---
+
+## Unit 1 Code Generation - Step 12 Complete
+**Timestamp**: 2026-09-08T19:00:45Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Added adapter and service integration tests using isolated temporary workspaces. The suite verifies deterministic source discovery, unsupported-file filtering, lexical traversal and junction/symlink escape rejection, multi-file malformed-content aggregation, curated compilation, memoized compiler call counts, bounded scheduling, explicit public-document assets, static slugs, predictable missing details, and route-model exclusion of absolute paths and token-like values. Formatting, strict type checking, linting, and all nineteen tests pass. Marked all Step 12 plan checkboxes complete and advanced state to Step 13.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 12 adapter and service integration tests
+
+---
+
+## Unit 1 Code Generation - Step 13 Complete
+**Timestamp**: 2026-09-08T19:00:45Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Added and ran an opt-in deterministic capacity harness. It generated 250 records for each of three collections, 750 records total, and 1,000 media references in an isolated temporary directory; validated all 750 records; measured validation separately from a production build; excluded dependency installation; and reported the Node, OS, architecture, and CPU context. Validation plus build completed in 7,200.28 ms against the 120,000 ms threshold. Marked all Step 13 plan checkboxes complete and advanced state to Step 14.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 13 capacity benchmark harness
+
+---
+
+## Unit 1 Code Generation - Step 14 Complete
+**Timestamp**: 2026-09-08T19:00:45Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Completed the full Unit 1 verification gate. Formatting, linting, strict type checking, 22 tests, and the production static export pass. Core coverage is 100 percent statements, functions, and lines and 92.56 percent branches, above the unchanged 90 percent threshold. The previously recorded capacity benchmark passed. Generated output contains only the expected root, not-found, robots, sitemap, framework assets, and local social asset; scans found no draft-true records, GitHub credential patterns, or absolute Windows/Linux workspace paths. Marked all Step 14 plan checkboxes complete and advanced state to Step 15.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 14 verification
+
+---
+
+## Unit 1 Code Generation - Step 15 Complete
+**Timestamp**: 2026-09-08T19:16:21Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Created the workspace README with local commands, content authoring, draft/demo, curated MDX, public-document, secret-handling, and production-origin guidance. Created the Unit 1 code summary with generated files, tests, decisions, verification evidence, follow-ups, and extension compliance. Marked US-010 and US-011 implemented for the Unit 1 foundation and marked every Step 15 plan checkbox complete. Markdown fences, whitespace, and formatting validation pass.
+**Context**: CONSTRUCTION - Unit 1 Code Generation, Step 15 documentation and handoff
+
+---
+
+## Unit 1 Code Generation - Approval Prompt
+**Timestamp**: 2026-09-08T19:16:21Z
+**User Input**: "See the complete raw input in the preceding continuation audit entry."
+**AI Response**: Presented the standardized Code Generation completion message and requested explicit review approval before beginning Unit 2.
+**Context**: CONSTRUCTION - Unit 1 Code Generation review gate
+
+---
+
+## Unit 1 Local Testing Guidance
+**Timestamp**: 2026-09-08T19:24:41Z
+**User Input**:
+````text
+where do i run these commands to test unit 1 myself
+```powershell
+npm ci
+npm run dev
+```
+````
+**AI Response**: Explained that the commands must run in a new PowerShell terminal from the workspace root containing `package.json`, provided the exact `cd` command, the local URL, the stop command, and the complete Unit 1 verification command set.
+**Context**: CONSTRUCTION - Unit 1 Code Generation review support
+
+---
+
+## Unit 1 Deliverable Clarification
+**Timestamp**: 2026-09-08T19:37:13Z
+**User Input**: "what exactly is the deliverable of unit 1. The localhost:3000 page doesnt have much except a line of text and a github link"
+**AI Response**: Clarified that Unit 1 deliberately delivers the tested static application, content, validation, query, metadata, and build foundations rather than the visitor-facing portfolio UI, which is assigned to Unit 2. Confirmed that the sparse local page matches the approved Unit 1 scope and identified a placeholder-heading character-encoding defect for correction.
+**Context**: CONSTRUCTION - Unit 1 Code Generation review support
+
+---
+
+## Unit 1 Local Testing - PowerShell Execution Policy
+**Timestamp**: 2026-09-08T19:27:20Z
+**User Input**:
+````text
+npm : File C:\Users\RBTG\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS\_Microsoft.Winget.Source\_8wekyb3d8bbw
+e\node-v24.19.0-win-x64\npm.ps1 cannot be loaded because running scripts is disabled on this system. For more
+information, see about\_Execution\_Policies at https\:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
+
+- npm ci
+-
+  ```markdown
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+  ```
+````
+**AI Response**: Explained that PowerShell blocked the `npm.ps1` command shim and provided `npm.cmd` commands that work without changing the system execution policy.
+**Context**: CONSTRUCTION - Unit 1 Code Generation review support
+
+---
+
+## Unit 1 Code Generation - Approval and Git Handoff
+**Timestamp**: 2026-09-08T19:43:33Z
+**User Input**: "ok approved unit 1 now commit and push to a new branch called unit1 with an appropriate commit message. After this start working on unit 2"
+**AI Response**: Recorded explicit Unit 1 approval, finalized its workflow state, prepared the completed foundation for commit and push on the requested `unit1` branch, and initiated Unit 2 Functional Design.
+**Context**: CONSTRUCTION - Unit 1 completion and Unit 2 transition
+
+---

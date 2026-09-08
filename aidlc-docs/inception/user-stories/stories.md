@@ -308,6 +308,9 @@
 
 ### US-010: Maintain content safely through repository files
 
+**Implementation status**: Unit 1 foundation implemented and verified. Unit 2 supplies initial
+demonstration content; Unit 3 supplies Pages CMS and final authoring integration.
+
 **Persona**: P-02 Portfolio Owner
 
 **Story**: As the portfolio owner, I want typed, validated, version-controlled content workflows so that I can replace demonstrations and publish genuine work without maintaining a database or changing page components.
@@ -352,6 +355,8 @@
 
 ### US-011: Understand and share any public route
 
+**Implementation status**: Unit 1 metadata and discovery foundation implemented and verified.
+
 **Persona**: P-01 Portfolio Visitor
 
 **Story**: As a portfolio visitor, I want meaningful page metadata and stable discovery files so that browser tabs, search systems, and shared links describe the page accurately.
@@ -376,9 +381,9 @@
 
 #### Quality checklist
 
-- [ ] Static output includes a sitemap and robots directives.
-- [ ] Canonical URL generation remains configurable until the production hostname is approved.
-- [ ] Draft and nonexistent routes do not appear in discovery output.
+- [x] Static output includes a sitemap and robots directives.
+- [x] Canonical URL generation remains configurable until the production hostname is approved.
+- [x] Draft and nonexistent routes do not appear in discovery output.
 
 ## Cross-Cutting Visual Quality
 

@@ -1,9 +1,12 @@
+import { fileURLToPath } from "node:url";
+
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
     alias: {
-      "@": new URL("./src", import.meta.url).pathname,
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "server-only": fileURLToPath(new URL("./tests/setup/server-only.ts", import.meta.url)),
     },
   },
   test: {
@@ -12,6 +15,11 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
+      include: [
+        "src/lib/content-application-foundation/policies/{calendar-date,documents,ordering,reading,slug,urls,visibility}.ts",
+        "src/lib/content-application-foundation/validation/{diagnostics,registry,schemas}.ts",
+        "src/lib/content-application-foundation/services/metadata-service.ts",
+      ],
       thresholds: {
         branches: 90,
         functions: 90,

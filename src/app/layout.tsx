@@ -1,15 +1,17 @@
-import type { Metadata } from "next";
 import type { ReactNode } from "react";
+
+import { metadataService } from "@/lib/content-application-foundation/services/composition-root";
+import { toNextMetadata } from "@/lib/content-application-foundation/services/metadata-service";
 
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: {
-    default: "Rohaim — Portfolio",
-    template: "%s — Rohaim",
-  },
-  description: "An editorial portfolio for selected work, writing, and research notes.",
-};
+export const metadata = toNextMetadata(
+  metadataService.forIndex({
+    title: "Rohaim — Portfolio",
+    description: "An editorial portfolio for selected work, writing, and research notes.",
+    pathname: "/",
+  }),
+);
 
 type RootLayoutProps = Readonly<{
   children: ReactNode;

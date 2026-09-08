@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">Rohaim portfolio</title>
+  <desc id="description">Editorial portfolio preview on a warm paper background.</desc>
+  <rect width="1200" height="630" fill="#f4efe6"/>
+  <path d="M80 92h1040M80 538h1040" stroke="#a4492d" stroke-width="8"/>
+  <text x="80" y="285" fill="#171512" font-family="Georgia, serif" font-size="104">Work, writing,</text>
+  <text x="80" y="400" fill="#171512" font-family="Georgia, serif" font-size="104">and notes.</text>
+  <text x="1120" y="505" fill="#6d675e" font-family="Arial, sans-serif" font-size="28" text-anchor="end">Rohaim — Portfolio</text>
+</svg>
