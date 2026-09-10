@@ -96,10 +96,16 @@ that action-time permission is received.
 3. Enter the exact `<commit-sha>`, `<production-origin>`, and `<pages-project>`.
 4. Enter `DEPLOY` only after the mandatory action-time permission is recorded.
 5. Submit the workflow.
-6. **External mutation:** approve the waiting `production` environment deployment after checking the
-   same commit, project, and origin again.
-7. The job checks out the exact SHA, verifies it, installs from the lockfile, runs the complete
-   verifier with the production origin, and then performs one Wrangler Direct Upload.
+6. The unprivileged preflight job checks out the exact SHA, verifies it, installs from the lockfile,
+   runs the complete verifier with the production origin, and stages the audited artifact for one
+   day.
+7. Wait for the separate deployment job to request access to the protected `production` environment.
+8. Ask for fresh explicit permission immediately before releasing that environment gate, even if
+   permission was already recorded before workflow dispatch.
+9. **External mutation:** approve the waiting environment deployment after checking the same commit,
+   project, and origin again. Administrator bypass is disabled.
+10. The deployment job downloads and rechecks the exact staged artifact, then performs one Wrangler
+    Direct Upload.
 
 The production environment reviewers are a second safeguard, not a replacement for the explicit
 permission gate.

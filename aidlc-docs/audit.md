@@ -1485,3 +1485,19 @@ this is my cv use this to fill the info that is avalaible in this and you can st
 **Context**: OPERATIONS - GitHub evidence complete; CI runtime warning remediation in progress
 
 ---
+
+## Operations - Protected Release Candidate Ready
+**Timestamp**: 2026-09-10T17:32:44Z
+**User Input**: "See the complete raw input in the Build and Test Approval entry."
+**AI Response**: Verified and pushed the Node.js 24 artifact-action remediation as commit `40005823`, opened pull request #2, observed both pull-request jobs pass, merged it, and observed the clean post-merge `main` workflow pass at immutable candidate `745417904cab7e4bc3de374ff2a23a9da1309563`. Created the GitHub `production` environment, restricted deployments to branch `main`, added Rohaim137 as the required reviewer, and disabled administrator bypass. A Wrangler OAuth login was initiated but immediately canceled because its broad account-wide scopes violated the project's least-privilege policy; no OAuth grant, Cloudflare resource, or deployment occurred. Progress now requires the owner to create a least-privilege Cloudflare Pages token and Pages project, store the token and account ID as protected environment secrets, and supply the non-secret project name and production origin.
+**Context**: OPERATIONS - GitHub release controls complete; Cloudflare owner setup required before production preflight
+
+---
+
+## Operations - Final Upload Gate Hardened
+**Timestamp**: 2026-09-10T17:37:19Z
+**User Input**: "See the complete raw input in the Build and Test Approval entry."
+**AI Response**: Split the manual production workflow into an unprivileged exact-commit validation/build job and a separate `production`-environment deployment job. The first job stages the audited artifact for one day; only the second job can read Cloudflare secrets or upload, and it downloads and rechecks that exact artifact after the environment gate is released. Updated executable workflow tests and the deployment handbook, then reran the full canonical verifier successfully. This structure permits the assistant to stop at the pending environment gate and request fresh explicit permission immediately before releasing the upload job.
+**Context**: OPERATIONS - Production permission boundary hardened and locally verified
+
+---
