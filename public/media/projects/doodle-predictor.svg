@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Doodle Predictor abstract cover</title>
+  <desc id="description">Freehand line work beside a structured prediction grid on a warm neutral background.</desc>
+  <rect width="1600" height="1000" fill="#f4efe6"/>
+  <path d="M170 650c90-330 190-430 330-180 90 160 165 120 235-190 65 300 155 410 270 145" fill="none" stroke="#b45309" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="1040" y="190" width="380" height="610" rx="22" fill="#fffaf2" stroke="#171717" stroke-width="16"/>
+  <path d="M1167 190v610M1293 190v610M1040 393h380M1040 597h380" stroke="#171717" stroke-width="12"/>
+  <circle cx="1230" cy="495" r="55" fill="#0f766e"/>
+</svg>

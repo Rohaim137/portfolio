@@ -1,0 +1,51 @@
+---
+title: StudySync
+slug: studysync
+summary:
+  An AI-powered study assistant combining local notes, cloud textbook embeddings, offline semantic
+  search, and handwritten-note digitization.
+featured: true
+technologies:
+  - Flutter
+  - FastAPI
+  - PostgreSQL
+  - pgvector
+  - LangChain
+  - ObjectBox
+  - Microsoft Kosmos-2.5
+cover:
+  kind: image
+  src: /media/projects/studysync.svg
+  alt: Abstract connected notes and search nodes representing the StudySync data flow
+  caption: A decorative portfolio illustration, not a product screenshot.
+  width: 1600
+  height: 1000
+status: prototype
+draft: false
+demo: false
+projectType: AI-powered study assistant
+architecture:
+  A hybrid retrieval-augmented generation pipeline combines local notes with cloud textbook
+  embeddings, while ObjectBox supports offline semantic search.
+decisions:
+  - Use PostgreSQL with pgvector for vector-backed cloud retrieval.
+  - Keep offline semantic search available through ObjectBox.
+  - Digitize handwritten notes with the Microsoft Kosmos-2.5 OCR model.
+---
+
+## Overview
+
+StudySync is an AI-powered study assistant built with Flutter, FastAPI, PostgreSQL with pgvector,
+and LangChain.
+
+## Retrieval approach
+
+The system uses a hybrid retrieval-augmented generation pipeline that combines a learner's local
+notes with cloud-hosted textbook embeddings. Offline semantic search uses ObjectBox for local vector
+storage.
+
+## Note digitization
+
+A handwritten-note digitization pipeline uses the Microsoft Kosmos-2.5 OCR model. This description
+contains only details supplied in the owner's CV; deployment, usage, and performance metrics have
+not been added because they were not provided.

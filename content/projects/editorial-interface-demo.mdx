@@ -1,0 +1,59 @@
+---
+title: Editorial Interface Study
+slug: editorial-interface-demo
+summary:
+  A demonstration of an asymmetric, keyboard-friendly discovery interface built around readable
+  hierarchy and explicit content states.
+featured: true
+technologies:
+  - TypeScript
+  - CSS
+  - Accessibility
+cover:
+  kind: image
+  src: /media/projects/editorial-interface.svg
+  alt: Abstract columns and editorial layout blocks
+  caption: A local abstract diagram representing the interface structure.
+  width: 1600
+  height: 1000
+status: prototype
+draft: false
+demo: true
+projectType: Web experience
+architecture: Static route composition with isolated navigation and filtering enhancements.
+decisions:
+  - Keep the complete reading order in server-rendered HTML.
+  - Use type, spacing, and rules instead of a uniform card dashboard.
+  - Communicate every state with text before color.
+retrospective:
+  The exercise shows how a strong content hierarchy can remain intact when an asymmetric desktop
+  composition collapses to one column.
+---
+
+## Problem
+
+Portfolio indexes often compress every idea into an identical tile. This demonstration explores a
+different constraint: preserve fast scanning while giving long-form work enough visual weight to
+feel deliberate.
+
+## Audience
+
+The interface is framed for visitors who want to compare project themes, technologies, and maturity
+without interpreting decorative signals or hidden interactions.
+
+## Approach
+
+The baseline document uses semantic headings, lists, links, and status text. Layout rules introduce
+asymmetry only at wider viewports, so the source order remains useful on narrow screens and with
+assistive technology.
+
+## Trade-offs
+
+A restrained system leaves less room for ornamental variation. In exchange, the content model can
+replace every demonstration record without requiring a new layout or a new set of component
+exceptions.
+
+## Replacement note
+
+This record is intentionally marked as a demonstration. It can be replaced by adding a genuine
+project file with validated facts and removing this file when it is no longer needed.

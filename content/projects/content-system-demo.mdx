@@ -1,0 +1,72 @@
+---
+title: Validated Content System
+slug: content-system-demo
+summary:
+  A demonstration content workflow that separates authoring input, validation, and static
+  presentation through explicit typed boundaries.
+featured: true
+technologies:
+  - TypeScript
+  - MDX
+  - Schema validation
+cover:
+  kind: image
+  src: /media/projects/content-system.svg
+  alt: Three connected panels representing content processing stages
+  caption: A local abstract diagram representing source, validation, and presentation.
+  width: 1600
+  height: 1000
+status: prototype
+draft: false
+demo: true
+projectType: Content system
+architecture:
+  Repository-authored records pass through constrained sources, typed validation, curated
+  compilation, and static route models.
+decisions:
+  - Aggregate authoring errors with file and field context.
+  - Keep draft visibility and demonstration provenance independent.
+  - Restrict MDX to a reviewed component vocabulary.
+gallery:
+  - kind: image
+    src: /media/projects/content-system.svg
+    alt: Three connected panels representing content processing stages
+    caption: Primary abstract view of the demonstration content flow.
+    width: 1600
+    height: 1000
+  - kind: image
+    src: /media/projects/data-workflow.svg
+    alt: Abstract stages representing an ordered data workflow
+    caption: Secondary abstract view used to verify gallery navigation.
+    width: 1600
+    height: 1000
+retrospective:
+  The demonstration emphasizes that predictable failure messages and narrow boundaries are part of
+  the authoring experience, not internal implementation details.
+---
+
+## Problem
+
+File-based publishing is easy to begin but can become unreliable when filenames, front matter,
+visibility rules, and presentation expectations drift apart.
+
+## Audience
+
+This demonstration is intended to make the maintenance workflow understandable to a future portfolio
+editor without introducing a database or a runtime administration service.
+
+## Approach
+
+Each record has one validated source, explicit publication flags, and deterministic derived values.
+Curated compilation accepts useful long-form structures while rejecting executable or unreviewed
+content behavior.
+
+## Trade-offs
+
+Strict schemas require deliberate edits when the content model changes. That constraint is useful
+here because a static build should fail before incomplete or ambiguous records become public.
+
+## Replacement note
+
+This is illustrative content, not a claim about a deployed system. A genuine case study can replace
+it through the same front-matter and body contract.

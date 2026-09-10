@@ -1,0 +1,454 @@
+media:
+  - name: project_media
+    label: Project media
+    input: public/media/projects
+    output: /media/projects
+    extensions: [svg, png, jpg, jpeg, webp, avif]
+    categories: [image]
+    rename: safe
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: content/projects
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [.gitkeep]
+    filename:
+      template: "{slug}.mdx"
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields: [title, status, draft, demo, featured]
+      primary: title
+      sort: [title, status]
+      search: [title, summary, technologies]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use lowercase letters, numbers, and single hyphens.
+      - name: summary
+        label: Summary
+        type: text
+        required: true
+      - name: featured
+        label: Featured
+        type: boolean
+        required: true
+        default: false
+      - name: technologies
+        label: Technologies
+        type: string
+        required: true
+        list:
+          min: 1
+      - name: cover
+        label: Cover
+        type: object
+        required: true
+        fields:
+          - name: kind
+            type: string
+            hidden: true
+            required: true
+            default: image
+          - name: src
+            label: Image
+            type: image
+            required: true
+            options:
+              media: project_media
+              path: public/media/projects
+              extensions: [svg, png, jpg, jpeg, webp, avif]
+          - name: alt
+            label: Alternative text
+            type: text
+            required: true
+            description: Describe the meaningful visual content without starting with "image of".
+          - name: caption
+            label: Caption
+            type: text
+          - name: width
+            label: Intrinsic width
+            type: number
+            required: true
+            options:
+              min: 1
+          - name: height
+            label: Intrinsic height
+            type: number
+            required: true
+            options:
+              min: 1
+      - name: status
+        label: Status
+        type: select
+        required: true
+        options:
+          values: [shipped, prototype, coursework, research, archived]
+      - name: draft
+        label: Draft
+        type: boolean
+        required: true
+        default: true
+        description: Draft records never appear in production output.
+      - name: demo
+        label: Demonstration content
+        type: boolean
+        required: true
+        default: false
+        description: Enable only for clearly disclosed sample content, never for genuine owner work.
+      - name: projectType
+        label: Project type
+        type: string
+      - name: startedAt
+        label: Started date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: completedAt
+        label: Completed date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: repositoryUrl
+        label: Repository URL
+        type: string
+        pattern:
+          regex: "^https://[^\\s]+$"
+          message: Use a complete HTTPS URL.
+      - name: demoUrl
+        label: Live URL
+        type: string
+        pattern:
+          regex: "^https://[^\\s]+$"
+          message: Use a complete HTTPS URL.
+      - name: gallery
+        label: Gallery
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{kind}: {alt}"
+        fields:
+          - name: kind
+            label: Media type
+            type: select
+            required: true
+            options:
+              values: [image, video]
+          - name: src
+            label: Public media path
+            type: string
+            required: true
+            pattern:
+              regex: "^/media/projects/[A-Za-z0-9._/-]+$"
+              message: Use a local path under /media/projects/.
+          - name: poster
+            label: Video poster path
+            type: string
+            description: Required by validation when media type is video.
+            pattern:
+              regex: "^/media/projects/[A-Za-z0-9._/-]+$"
+              message: Use a local path under /media/projects/.
+          - name: alt
+            label: Alternative text
+            type: text
+            required: true
+          - name: caption
+            label: Caption
+            type: text
+          - name: width
+            label: Image width
+            type: number
+            description: Required by validation when media type is image.
+            options:
+              min: 1
+          - name: height
+            label: Image height
+            type: number
+            description: Required by validation when media type is image.
+            options:
+              min: 1
+      - name: architecture
+        label: Architecture
+        type: text
+      - name: decisions
+        label: Decisions
+        type: text
+        list: true
+      - name: results
+        label: Results
+        type: text
+        list: true
+        description: Add only verifiable outcomes; never invent metrics.
+      - name: retrospective
+        label: Retrospective
+        type: text
+      - name: body
+        label: Case study body
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: project_media
+          path: public/media/projects
+          extensions: [svg, png, jpg, jpeg, webp, avif]
+          rename: safe
+          switcher: true
+
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: content/blog
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [.gitkeep]
+    filename:
+      template: "{slug}.mdx"
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields: [title, publishedAt, draft, demo]
+      primary: title
+      sort: [publishedAt, title]
+      search: [title, description, tags]
+      default:
+        sort: publishedAt
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use lowercase letters, numbers, and single hyphens.
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: publishedAt
+        label: Published date
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: draft
+        label: Draft
+        type: boolean
+        required: true
+        default: true
+        description: Draft records never appear in production output.
+      - name: demo
+        label: Demonstration content
+        type: boolean
+        required: true
+        default: false
+        description:
+          Enable only for clearly disclosed sample content, never for genuine owner writing.
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: cover
+        label: Cover
+        type: object
+        fields:
+          - name: kind
+            type: string
+            hidden: true
+            required: true
+            default: image
+          - name: src
+            label: Image
+            type: image
+            required: true
+            options:
+              media: project_media
+              path: public/media/projects
+              extensions: [svg, png, jpg, jpeg, webp, avif]
+          - name: alt
+            label: Alternative text
+            type: text
+            required: true
+          - name: caption
+            label: Caption
+            type: text
+          - name: width
+            label: Intrinsic width
+            type: number
+            required: true
+            options:
+              min: 1
+          - name: height
+            label: Intrinsic height
+            type: number
+            required: true
+            options:
+              min: 1
+      - name: updatedAt
+        label: Updated date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: series
+        label: Series
+        type: string
+      - name: showTableOfContents
+        label: Show table of contents
+        type: boolean
+        default: false
+      - name: body
+        label: Article body
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: project_media
+          path: public/media/projects
+          extensions: [svg, png, jpg, jpeg, webp, avif]
+          rename: safe
+          switcher: true
+
+  - name: reading
+    label: Reading list
+    type: collection
+    path: content/reading
+    format: yaml-frontmatter
+    subfolders: false
+    exclude: [.gitkeep]
+    filename:
+      template: "{slug}.mdx"
+      field: false
+    operations:
+      create: true
+      rename: false
+      delete: true
+    view:
+      fields: [title, status, draft, demo]
+      primary: title
+      sort: [status, title]
+      search: [title, authors, topics]
+      default:
+        sort: title
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: slug
+        label: Slug
+        type: string
+        required: true
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use lowercase letters, numbers, and single hyphens.
+      - name: status
+        label: Status
+        type: select
+        required: true
+        options:
+          values: [queued, reading, completed]
+      - name: sourceUrl
+        label: Source URL
+        type: string
+        required: true
+        pattern:
+          regex: "^https://[^\\s]+$"
+          message: Link to the legitimate HTTPS source, not an unauthorized local copy.
+      - name: topics
+        label: Topics
+        type: string
+        required: true
+        list:
+          min: 1
+      - name: draft
+        label: Draft
+        type: boolean
+        required: true
+        default: true
+        description: Draft records never appear in production output.
+      - name: demo
+        label: Demonstration content
+        type: boolean
+        required: true
+        default: false
+      - name: authors
+        label: Authors
+        type: string
+        list: true
+      - name: year
+        label: Year
+        type: number
+        options:
+          min: 1000
+          max: 9999
+      - name: venue
+        label: Venue
+        type: string
+      - name: startedAt
+        label: Started date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: completedAt
+        label: Completed date
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: rating
+        label: Rating
+        type: number
+        options:
+          min: 0
+          max: 5
+      - name: summary
+        label: Summary
+        type: text
+      - name: body
+        label: Reading notes (route activation required)
+        type: rich-text
+        readonly: true
+        description:
+          Reading-note bodies stay disabled until the static /reading/[slug] route is activated and
+          verified. Create list-only records here; follow docs/authoring.md before enabling notes.
+        options:
+          format: markdown
+          media: false
+          switcher: true
+
+settings:
+  hide: true
+  content:
+    merge: false
+  commit:
+    identity: user
+    templates:
+      create: "content: create {path} via Pages CMS"
+      update: "content: update {path} via Pages CMS"
+      delete: "content: delete {path} via Pages CMS"
+      rename: "content: rename {oldPath} to {newPath} via Pages CMS"

@@ -1,0 +1,84 @@
+name: Deploy portfolio to Cloudflare Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Exact 40-character Git commit SHA to build and publish
+        required: true
+        type: string
+      production_origin:
+        description: Approved HTTPS production origin without a trailing slash
+        required: true
+        type: string
+      pages_project:
+        description: Existing isolated Cloudflare Pages project name
+        required: true
+        type: string
+      confirmation:
+        description: Type DEPLOY only after the action-time production approval
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-production
+  cancel-in-progress: false
+
+jobs:
+  validate-build-and-deploy:
+    name: Validate, build, and deploy exact commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ inputs.production_origin }}
+    env:
+      EXPECTED_COMMIT: ${{ inputs.commit }}
+      PRODUCTION_ORIGIN: ${{ inputs.production_origin }}
+      PAGES_PROJECT: ${{ inputs.pages_project }}
+      DEPLOY_CONFIRMATION: ${{ inputs.confirmation }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      NEXT_PUBLIC_SITE_URL: ${{ inputs.production_origin }}
+    steps:
+      - name: Validate non-secret release inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$DEPLOY_CONFIRMATION" == "DEPLOY" ]]
+          [[ "$EXPECTED_COMMIT" =~ ^[0-9a-fA-F]{40}$ ]]
+          [[ "$PRODUCTION_ORIGIN" =~ ^https://[A-Za-z0-9.-]+(:[0-9]+)?$ ]]
+          [[ "$PAGES_PROJECT" =~ ^[a-z0-9]([a-z0-9-]{0,56}[a-z0-9])?$ ]]
+          [[ -n "$CLOUDFLARE_ACCOUNT_ID" ]]
+          [[ -n "$CLOUDFLARE_API_TOKEN" ]]
+
+      - name: Check out the explicitly approved commit
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.commit }}
+          fetch-depth: 1
+
+      - name: Verify checked-out commit identity
+        shell: bash
+        run: test "$(git rev-parse HEAD)" = "$EXPECTED_COMMIT"
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Rebuild and audit with the approved production origin
+        run: npm run verify
+
+      - name: Upload the audited artifact to Cloudflare Pages
+        shell: bash
+        run: >-
+          npm exec -- wrangler pages deploy out --project-name="$PAGES_PROJECT" --branch=main
+          --commit-hash="$EXPECTED_COMMIT"

@@ -1,0 +1,48 @@
+---
+title: Modeling Accessible Interface State
+slug: accessible-state-demo
+description:
+  A demonstration guide to keyboard behavior, focus restoration, status text, and reduced-motion
+  alternatives in small interactive components.
+publishedAt: "2025-02-11"
+draft: false
+demo: true
+tags:
+  - Accessibility
+  - Interaction
+  - Testing
+showTableOfContents: true
+---
+
+Accessible interaction becomes easier to verify when component state and focus effects are described
+separately. This demonstration uses navigation and an image viewer as compact examples.
+
+## Start with native meaning
+
+A link should navigate, a button should change interface state, and a dialog should announce itself
+as a dialog. Native elements provide reliable keyboard behavior before additional attributes are
+considered.
+
+Visible labels still matter. A selected filter, a demonstration badge, or a pending destination
+cannot depend on color alone.
+
+## Make transitions explicit
+
+A narrow menu can be closed or open. Escape closes it and returns focus to the control that opened
+it. Selecting a route also closes it, but focus naturally follows navigation instead.
+
+A lightbox adds an item index and originating trigger. Previous and next movement must remain within
+the available images, and closing must return focus to a useful location.
+
+## Design the fallback
+
+Enhancement should not own the only copy of important content. Navigation begins as links, project
+results begin as a complete list, and gallery images begin inline.
+
+When client code fails, the visitor loses convenience rather than access.
+
+## Test observable behavior
+
+Useful checks activate controls through the keyboard, inspect programmatic state, and assert the
+focused element after close. Automated accessibility analysis can catch structural issues, but it
+does not replace tests for focus order or truthful wording.

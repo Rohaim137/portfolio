@@ -1,0 +1,50 @@
+---
+title: Drawing a Clear Static Boundary
+slug: static-boundaries-demo
+description:
+  An educational demonstration of how build-time content work and browser-time presentation can
+  remain deliberately separate.
+publishedAt: "2025-03-18"
+draft: false
+demo: true
+tags:
+  - Static architecture
+  - Boundaries
+  - TypeScript
+showTableOfContents: true
+---
+
+Static sites are most predictable when the boundary between authoring work and visitor interaction
+is explicit. This demonstration article describes that boundary without referring to a personal
+project or experience.
+
+## Validate before presentation
+
+Content discovery, schema checks, visibility rules, and compilation belong before publication. A
+failed required field should stop a build with useful context rather than become an incomplete
+browser state.
+
+The presentation layer can then consume a smaller contract: validated summaries, compiled details,
+explicit optional values, and stable metadata inputs.
+
+## Keep browser state narrow
+
+Navigation disclosure, local filtering, and media enlargement may require browser state. Content
+access, route meaning, and ordinary links do not.
+
+Small client boundaries make failure behavior easier to explain. If filtering does not initialize,
+the complete project list is still readable. If a lightbox cannot open, the image remains inline.
+
+## Treat absence as data
+
+An empty reading list, a pending social destination, and an invalid article are different states.
+The first two can render truthfully; the invalid article should not be published.
+
+Explicit variants prevent a component from manufacturing a URL, biography, or activity record simply
+to fill visual space.
+
+## Measure the boundary
+
+Static output, route manifests, client chunks, component tests, and accessibility checks provide
+evidence that the boundary remains intact. The goal is not zero JavaScript at any cost, but no
+browser code without a clear interaction responsibility.
