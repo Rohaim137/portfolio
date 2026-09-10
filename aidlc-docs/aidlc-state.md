@@ -4,7 +4,7 @@
 - **Project Type**: Greenfield
 - **Start Date**: 2026-09-01T17:57:49Z
 - **Current Phase**: OPERATIONS
-- **Current Stage**: Deployment preparation
+- **Current Stage**: Deployment preparation - awaiting Cloudflare credentials and project
 - **Project Name**: Personal Portfolio Website
 
 ## Workspace State
@@ -44,7 +44,7 @@
 - `anti-ai-slop.md` - UI design constraints supplied by the user
 
 ## Next Step
-Create an exact reviewed release commit and complete non-production deployment preflight. Stop for explicit permission immediately before production upload.
+Have the owner create a least-privilege Cloudflare Pages token and project, store the two secrets in the protected GitHub production environment, and provide the non-secret project name and assigned HTTPS origin. Then run the production-origin preflight and stop for explicit permission immediately before upload.
 
 ## Requirements Analysis Status
 - **Depth**: Comprehensive

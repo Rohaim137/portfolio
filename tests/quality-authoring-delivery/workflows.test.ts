@@ -10,6 +10,7 @@ type Workflow = {
     string,
     {
       environment?: { name?: string };
+      needs?: string;
       steps?: Array<{ uses?: string; run?: string }>;
     }
   >;
@@ -48,7 +49,16 @@ describe("GitHub workflow release boundaries", () => {
     expect(source).toContain("secrets.CLOUDFLARE_API_TOKEN");
     expect(source).toContain("wrangler pages deploy out");
 
-    const job = workflow.jobs?.["validate-build-and-deploy"];
-    expect(job?.environment?.name).toBe("production");
+    const validationJob = workflow.jobs?.["validate-and-build"];
+    const deployJob = workflow.jobs?.deploy;
+    expect(validationJob?.environment).toBeUndefined();
+    expect(deployJob?.needs).toBe("validate-and-build");
+    expect(deployJob?.environment?.name).toBe("production");
+    expect(validationJob?.steps?.some((step) => step.uses === "actions/upload-artifact@v6")).toBe(
+      true,
+    );
+    expect(deployJob?.steps?.some((step) => step.uses === "actions/download-artifact@v8")).toBe(
+      true,
+    );
   });
 });
