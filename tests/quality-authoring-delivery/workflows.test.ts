@@ -32,7 +32,7 @@ describe("GitHub workflow release boundaries", () => {
     expect(workflow.permissions).toEqual({ contents: "read" });
     expect(source).not.toMatch(/cloudflare|wrangler|secrets\./iu);
     expect(source).toContain("actions/upload-artifact@v6");
-    expect(source).toContain("actions/download-artifact@v5");
+    expect(source).toContain("actions/download-artifact@v8");
     expect(source).toContain("retention-days: 3");
   });
 

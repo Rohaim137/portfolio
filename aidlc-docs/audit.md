@@ -1477,3 +1477,11 @@ this is my cv use this to fill the info that is avalaible in this and you can st
 **Context**: OPERATIONS - Build and Test approved; deployment preparation started
 
 ---
+
+## Operations - GitHub Release Preparation
+**Timestamp**: 2026-09-10T17:23:26Z
+**User Input**: "See the complete raw input in the Build and Test Approval entry."
+**AI Response**: Created release-candidate commit `2af9c687`, pushed branch `unit2`, opened pull request #1, observed both read-only pull-request quality jobs pass, merged the pull request without deleting the source branch, and observed the post-merge `main` workflow pass at commit `660cc1f3bba5305160b8b87e2b0c4db6ef52ab2c`. A read-only readiness check found GitHub CLI authenticated but no Cloudflare session, Cloudflare token/account environment variables, or production origin. No hosting resource or deployment was created. The successful GitHub run emitted a Node 20 deprecation annotation for `actions/download-artifact@v5`; official release information identifies v8.0.1 as current and v7+ as Node.js 24 based, so the workflow and executable expectation were updated to `actions/download-artifact@v8` for a clean follow-up release candidate.
+**Context**: OPERATIONS - GitHub evidence complete; CI runtime warning remediation in progress
+
+---
