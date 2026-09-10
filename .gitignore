@@ -8,6 +8,9 @@ out/
 # Test and coverage output
 coverage/
 .vitest/
+.playwright/
+playwright-report/
+test-results/
 
 # TypeScript build cache
 *.tsbuildinfo

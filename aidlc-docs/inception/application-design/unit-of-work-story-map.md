@@ -88,7 +88,7 @@ Every approved story has exactly one primary unit owner.
 - Complete authoring and demo-replacement guidance
 - Secret and public-document safety
 - Static output portability and zero mandatory runtime cost
-- No external deployment without separate approval
+- Cloudflare Pages deployment is included after integrated verification and explicit action-time approval
 
 ## Persona Coverage by Unit
 
@@ -119,7 +119,7 @@ Every approved story has exactly one primary unit owner.
 - Both personas receive value in all three units and have a clear primary interaction boundary.
 - Every Application Design component and service category has an owning unit.
 - Cross-unit support is explicit and does not transfer primary story accountability.
-- No story requires an independent deployment or runtime service.
+- US-014 now includes one controlled static deployment; no story introduces a runtime application service.
 
 ## Extension Compliance
 

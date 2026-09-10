@@ -15,7 +15,17 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "benchmark:content": "node scripts/benchmark-content.mjs"
+    "benchmark:content": "node scripts/benchmark-content.mjs",
+    "audit:cms": "node scripts/verify.mjs cms",
+    "audit:artifact": "node scripts/verify.mjs artifact",
+    "audit:documents": "node scripts/verify.mjs documents",
+    "audit:design": "node scripts/verify.mjs design",
+    "audit:repository": "node scripts/verify.mjs repository",
+    "serve:static": "node scripts/serve-static.mjs --root out --host 127.0.0.1 --port 4173",
+    "playwright:install": "playwright install chromium",
+    "test:e2e": "playwright test",
+    "verify": "node scripts/verify.mjs",
+    "verify:help": "node scripts/verify.mjs --help"
   },
   "dependencies": {
     "@mdx-js/mdx": "3.1.1",
@@ -27,16 +37,30 @@
     "zod": "4.5.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
     "@tailwindcss/postcss": "4.3.3",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.7",
     "@types/node": "26.4.1",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
     "@vitest/coverage-v8": "5.0.0",
+    "axe-core": "4.13.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.4",
+    "jsdom": "28.1.0",
     "prettier": "3.9.6",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3",
-    "vitest": "5.0.0"
+    "vitest": "5.0.0",
+    "wrangler": "4.130.0",
+    "yaml": "2.9.0"
+  },
+  "overrides": {
+    "miniflare": {
+      "sharp": "0.35.4"
+    }
   }
 }

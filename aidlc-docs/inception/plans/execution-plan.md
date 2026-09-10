@@ -112,7 +112,7 @@ flowchart TD
 5. Application Design and Units Generation will execute.
 6. Each generated unit will receive the applicable Functional, NFR, and Infrastructure stages, followed by mandatory Code Generation.
 7. Build and Test will execute after all units.
-8. Operations remains a placeholder; external deployment needs separate approval.
+8. Operations remains a placeholder; the user-added static release executes after Build and Test with explicit action-time approval.
 
 ## Stage Selection
 
@@ -142,16 +142,16 @@ flowchart TD
 - [ ] **NFR Design - Execute where NFR Requirements executes**
   - The implementation needs concrete design patterns for accessible interaction, validation, safe content rendering, media loading, and build quality.
 - [ ] **Infrastructure Design - Execute for the delivery and automation unit**
-  - CI checks, static-export constraints, future build-time GitHub data, Pages CMS configuration, and Cloudflare Pages preparation need mapping. No deployment will occur in this stage.
+  - CI checks, static-export constraints, future build-time GitHub data, Pages CMS configuration, Cloudflare Pages configuration, and the controlled post-verification release need mapping.
 - [ ] **Code Generation - Execute for every unit**
   - Each unit requires an approved implementation plan, application code at the workspace root, tests, and supporting configuration.
 - [ ] **Build and Test - Execute after all units**
-  - The final system requires formatting, linting, type checking, targeted tests, accessibility checks, static build verification, and documented deployment preparation.
+  - The final system requires formatting, linting, type checking, targeted tests, accessibility checks, static build verification, deployment preparation, and post-deployment smoke evidence.
 
 ### Operations phase
 
 - [ ] **Operations - Placeholder**
-  - Production deployment and monitoring workflows are outside the current AIDLC implementation stages. Cloudflare publication remains a separately approved action.
+  - Ongoing monitoring workflows remain outside the current AIDLC implementation stages. The user-added Cloudflare publication is a separately confirmed release action after Build and Test.
 
 ## Proposed Unit Strategy
 
@@ -178,7 +178,7 @@ Units Generation will confirm or refine these boundaries.
 - Pages CMS configuration and authoring guidance
 - Test suites and automated anti-slop checks where practical
 - CI quality workflow, static artifact verification, and future GitHub contribution boundary
-- Cloudflare Pages build instructions without external publication
+- Cloudflare Pages configuration, controlled publication, smoke checks, and rollback guidance
 - Dependency: Units 1 and 2
 
 ## Per-Unit Stage Matrix
@@ -201,7 +201,7 @@ Units Generation will confirm or refine these boundaries.
   2. Unit 2 validates routes, content states, interaction, accessibility, and visual constraints.
   3. Unit 3 validates authoring, CI commands, artifact integrity, and delivery documentation.
   4. Build and Test validates the integrated application from a clean dependency installation.
-- **Rollback strategy**: Keep each unit independently reviewable and avoid external deployment during construction.
+- **Rollback strategy**: Keep each unit independently reviewable; deploy only after Build and Test, then recover through a known-good Git commit and Cloudflare deployment rollback.
 
 ## Effort Shape
 
@@ -219,7 +219,7 @@ Units Generation will confirm or refine these boundaries.
 - The interface is responsive, keyboard operable, reduced-motion aware, and consistent with the editorial engineering direction.
 - All blocking anti-slop rules pass, with no invented owner claims or metrics.
 - Formatting, linting, type checking, targeted tests, and the production static export succeed.
-- Authoring and deployment preparation are documented without publishing externally.
+- Authoring and deployment are documented; publication occurs only after integrated verification and explicit action-time approval.
 
 ## Quality Gates
 

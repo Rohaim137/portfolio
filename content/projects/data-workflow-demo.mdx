@@ -1,0 +1,59 @@
+---
+title: Deterministic Review Workflow
+slug: data-workflow-demo
+summary:
+  A demonstration data flow that keeps transformation order, review state, and failure reporting
+  explicit from input to published output.
+featured: true
+technologies:
+  - TypeScript
+  - Data modeling
+  - Automated testing
+cover:
+  kind: image
+  src: /media/projects/data-workflow.svg
+  alt: Connected nodes and branching paths representing a data review flow
+  caption: A local abstract diagram representing deterministic processing and review.
+  width: 1600
+  height: 1000
+status: research
+draft: false
+demo: true
+projectType: Data workflow
+architecture:
+  Immutable records move through validation, deterministic transformation, review, and static output
+  stages.
+decisions:
+  - Preserve source order unless one explicit comparator owns the result order.
+  - Model missing, invalid, pending, and complete states separately.
+  - Keep diagnostics stable across concurrent work.
+retrospective:
+  The exercise demonstrates how explicit state and ordering rules reduce ambiguity without requiring
+  a runtime orchestration service.
+---
+
+## Problem
+
+Small data workflows can become difficult to review when transformations change order, partial
+failures disappear, or an empty result looks the same as a failed result.
+
+## Audience
+
+The model is framed for maintainers who need to inspect what happened at each stage and for
+interface users who need truthful final states.
+
+## Approach
+
+Inputs are validated before transformation. Independent work may run concurrently, but results and
+diagnostics return in deterministic source order. Presentation receives only complete serializable
+records.
+
+## Trade-offs
+
+This structure favors reproducibility over streaming partial output. It is appropriate for a bounded
+static build, while a genuinely real-time system would need different operational boundaries.
+
+## Replacement note
+
+No production dataset, client process, or measured outcome is represented. The file can be replaced
+with a factual workflow case study later.

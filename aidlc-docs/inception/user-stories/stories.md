@@ -10,6 +10,8 @@
 
 ### US-001: Navigate the portfolio confidently
 
+**Implementation status**: Unit 2 implemented and verified.
+
 **Persona**: P-01 Portfolio Visitor
 
 **Story**: As a portfolio visitor, I want consistent, responsive navigation and page context so that I can move among the portfolio's major areas without losing my place.
@@ -34,13 +36,15 @@
 
 #### Quality checklist
 
-- [ ] A skip link reaches the main content.
-- [ ] Header, main, and footer landmarks are present.
-- [ ] The custom not-found experience offers a useful path back into the site.
+- [x] A skip link reaches the main content.
+- [x] Header, main, and footer landmarks are present.
+- [x] The custom not-found experience offers a useful path back into the site.
 
 ## Home Overview
 
 ### US-002: Understand the portfolio at a glance
+
+**Implementation status**: Unit 2 implemented and verified with generic replaceable profile copy.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -66,13 +70,15 @@
 
 #### Quality checklist
 
-- [ ] Every major section has a stable `data-od-id`.
-- [ ] Content order remains logical when the asymmetric desktop layout becomes a single-column mobile layout.
-- [ ] The GitHub area includes the working profile destination.
+- [x] Every major section has a stable `data-od-id`.
+- [x] Content order remains logical when the asymmetric desktop layout becomes a single-column mobile layout.
+- [x] The GitHub area includes the working profile destination.
 
 ## Projects
 
 ### US-003: Discover and filter projects honestly
+
+**Implementation status**: Unit 2 implemented and verified with three disclosed demonstrations.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -104,11 +110,13 @@
 
 #### Quality checklist
 
-- [ ] Cards use substantive summaries without invented outcomes or metrics.
-- [ ] Filter state is understandable without relying on color alone.
-- [ ] An empty collection still has a truthful designed state after demonstration entries are removed.
+- [x] Cards use substantive summaries without invented outcomes or metrics.
+- [x] Filter state is understandable without relying on color alone.
+- [x] An empty collection still has a truthful designed state after demonstration entries are removed.
 
 ### US-004: Evaluate a project case study and its media
+
+**Implementation status**: Unit 2 implemented and verified.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -134,13 +142,15 @@
 
 #### Quality checklist
 
-- [ ] Repository and live-demo controls appear only when valid URLs exist.
-- [ ] Below-the-fold media is lazy-loaded.
-- [ ] Captions are present where media needs context.
+- [x] Repository and live-demo controls appear only when valid URLs exist.
+- [x] Below-the-fold media is lazy-loaded.
+- [x] Captions are present where media needs context.
 
 ## Blog
 
 ### US-005: Discover technical writing
+
+**Implementation status**: Unit 2 implemented and verified with three disclosed demonstrations.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -166,10 +176,12 @@
 
 #### Quality checklist
 
-- [ ] Demonstration previews do not attribute opinions or experience to the owner.
-- [ ] The index has a truthful empty state after demonstration posts are removed.
+- [x] Demonstration previews do not attribute opinions or experience to the owner.
+- [x] The index has a truthful empty state after demonstration posts are removed.
 
 ### US-006: Read a well-structured article
+
+**Implementation status**: Unit 2 implemented and verified.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -195,12 +207,14 @@
 
 #### Quality checklist
 
-- [ ] Long lines, code blocks, and media do not cause narrow-screen horizontal page overflow.
-- [ ] Heading links and table-of-contents links are keyboard accessible.
+- [x] Long lines, code blocks, and media do not cause narrow-screen horizontal page overflow.
+- [x] Heading links and table-of-contents links are keyboard accessible.
 
 ## Reading and Research
 
 ### US-007: Explore reading activity when available
+
+**Implementation status**: Unit 2 empty-state and future-record presentation implemented and verified. The static detail route activates when the first genuine eligible record exists.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -232,13 +246,15 @@
 
 #### Quality checklist
 
-- [ ] Status is conveyed through visible text rather than color alone.
-- [ ] Draft records are absent from production indexes and routes.
-- [ ] Required reading front matter is validated with actionable errors.
+- [x] Status is conveyed through visible text rather than color alone.
+- [x] Draft records are absent from production indexes and routes.
+- [x] Required reading front matter is validated with actionable errors.
 
 ## Documents
 
 ### US-008: Access only deliberate public documents
+
+**Implementation status**: Unit 2 implemented and verified with an explicit unavailable state.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -264,12 +280,14 @@
 
 #### Quality checklist
 
-- [ ] Documentation warns that every file under `public/` is downloadable.
-- [ ] Sensitive document categories are explicitly prohibited from publication.
+- [x] Documentation warns that every file under `public/` is downloadable.
+- [x] Sensitive document categories are explicitly prohibited from publication.
 
 ## GitHub and Social Destinations
 
 ### US-009: Reach verified destinations without misleading links
+
+**Implementation status**: Unit 2 implemented and verified; contribution automation remains dormant.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -301,15 +319,15 @@
 
 #### Quality checklist
 
-- [ ] Future contribution data consumes generated static input behind a replaceable boundary.
-- [ ] Future automation is build-time only, secrets stay outside the browser, and missing data cannot fail the site.
+- [x] Future contribution data consumes generated static input behind a replaceable boundary.
+- [x] Future automation is build-time only, secrets stay outside the browser, and missing data cannot fail the site.
 
 ## Content Authoring
 
 ### US-010: Maintain content safely through repository files
 
-**Implementation status**: Unit 1 foundation implemented and verified. Unit 2 supplies initial
-demonstration content; Unit 3 supplies Pages CMS and final authoring integration.
+**Implementation status**: Implemented and locally verified across Units 1 through 3. Pages CMS is an
+optional repository editor; source-controlled files and the shared validation pipeline remain authoritative.
 
 **Persona**: P-02 Portfolio Owner
 
@@ -347,15 +365,16 @@ demonstration content; Unit 3 supplies Pages CMS and final authoring integration
 
 #### Quality checklist
 
-- [ ] Pages CMS supports the same collections but is not a runtime dependency.
-- [ ] Test fixtures are separate from production demonstration and genuine content.
-- [ ] Authoring guidance covers drafting, validation, publication, demo replacement, and public documents.
+- [x] Pages CMS supports the same collections but is not a runtime dependency.
+- [x] Test fixtures are separate from production demonstration and genuine content.
+- [x] Authoring guidance covers drafting, validation, publication, demo replacement, and public documents.
 
 ## Metadata and Discovery
 
 ### US-011: Understand and share any public route
 
-**Implementation status**: Unit 1 metadata and discovery foundation implemented and verified.
+**Implementation status**: Implemented and locally verified, including static-artifact discovery and
+origin-gating audits in Unit 3.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -389,6 +408,9 @@ demonstration content; Unit 3 supplies Pages CMS and final authoring integration
 
 ### US-012: Experience a deliberate editorial design
 
+**Implementation status**: Implemented and verified against the supplied anti-slop rules, with Unit 3
+adding an executable repository audit for detectable regressions.
+
 **Persona**: P-01 Portfolio Visitor
 
 **Story**: As a portfolio visitor, I want the interface to feel intentionally designed and specific to this portfolio so that presentation reinforces credibility rather than resembling a generic generated template.
@@ -413,20 +435,23 @@ demonstration content; Unit 3 supplies Pages CMS and final authoring integration
 
 #### Quality checklist
 
-- [ ] No prohibited indigo or violet value serves as the accent.
-- [ ] No prohibited two-stop hero gradient is present.
-- [ ] Emoji are not used as feature or control icons; necessary icons are monoline SVG using `currentColor`.
-- [ ] Display heading tokens are applied consistently.
-- [ ] No rounded card uses a colored left-border accent.
-- [ ] There are no decorative blob or wave backgrounds.
-- [ ] The accent has no more than two conspicuous uses in a typical viewport.
-- [ ] Copy contains no lorem ipsum, generic feature numbering, invented metrics, or unlabelled fictional work.
-- [ ] Major sections use stable `data-od-id` attributes.
-- [ ] One polished light mode ships, with future-ready color tokens.
+- [x] No prohibited indigo or violet value serves as the accent.
+- [x] No prohibited two-stop hero gradient is present.
+- [x] Emoji are not used as feature or control icons; necessary icons are monoline SVG using `currentColor`.
+- [x] Display heading tokens are applied consistently.
+- [x] No rounded card uses a colored left-border accent.
+- [x] There are no decorative blob or wave backgrounds.
+- [x] The accent has no more than two conspicuous uses in a typical viewport.
+- [x] Copy contains no lorem ipsum, generic feature numbering, invented metrics, or unlabelled fictional work.
+- [x] Major sections use stable `data-od-id` attributes.
+- [x] One polished light mode ships, with future-ready color tokens.
 
 ## Cross-Cutting Accessibility
 
 ### US-013: Use the complete portfolio accessibly
+
+**Implementation status**: Implemented and locally verified through component interaction tests,
+automated DOM accessibility scans, static responsive-style review, and eight Chromium journeys.
 
 **Persona**: P-01 Portfolio Visitor
 
@@ -458,15 +483,19 @@ demonstration content; Unit 3 supplies Pages CMS and final authoring integration
 
 #### Quality checklist
 
-- [ ] Semantic landmarks and a logical heading hierarchy are present.
-- [ ] Text, controls, focus, and meaningful states meet accepted AA contrast thresholds.
-- [ ] Images have appropriate alternative text and contextual media has captions.
-- [ ] Videos are muted by default and never create surprise audio.
-- [ ] Representative routes pass automated checks and documented manual keyboard review.
+- [x] Semantic landmarks and a logical heading hierarchy are present.
+- [x] Text, controls, focus, and meaningful states use the approved contrast tokens and pass compatible automated checks.
+- [x] Images have appropriate alternative text and contextual media has captions.
+- [x] Videos are muted by default and never create surprise audio.
+- [x] Representative routes pass Chromium keyboard, focus, overflow, reduced-motion, and automated accessibility review.
 
 ## Static Build, Security, and Delivery
 
 ### US-014: Build and prepare the portfolio safely at zero mandatory cost
+
+**Implementation status**: Build, quality, portability, CI, and protected manual deployment
+preparation are implemented and locally verified. External Cloudflare configuration and publication
+remain deliberately unperformed pending Build and Test and action-time approval.
 
 **Persona**: P-02 Portfolio Owner
 
@@ -498,14 +527,14 @@ demonstration content; Unit 3 supplies Pages CMS and final authoring integration
 
 #### Quality checklist
 
-- [ ] Browser bundles and static output contain no tokens, API keys, or private documents.
-- [ ] External content cannot enable arbitrary script execution.
-- [ ] A lockfile pins dependencies and available dependency audits are documented.
-- [ ] Empty collections, missing optional media, and absent contribution data do not break builds or pages.
-- [ ] Responsive media, lazy loading, poster assets, and build-time highlighting support the performance target.
-- [ ] Representative pages target Lighthouse scores near or above 90, with useful-media exceptions documented.
-- [ ] The output is suitable for Cloudflare Pages Free and portable to another static host.
-- [ ] No user accounts, contact backend, analytics tracker, or mandatory paid service is introduced.
+- [x] Browser bundles and static output contain no tokens, API keys, or private documents.
+- [x] External content cannot enable arbitrary script execution.
+- [x] A lockfile pins dependencies and available dependency audits are documented.
+- [x] Empty collections, missing optional media, and absent contribution data do not break builds or pages.
+- [x] Responsive media, lazy loading, poster assets, and build-time highlighting support the performance target.
+- [x] Representative pages target Lighthouse scores near or above 90, with useful-media exceptions documented; score capture remains Build and Test evidence.
+- [x] The output is suitable for Cloudflare Pages Free and portable to another static host.
+- [x] No user accounts, contact backend, analytics tracker, or mandatory paid service is introduced.
 
 ## Requirements-to-Story Coverage
 

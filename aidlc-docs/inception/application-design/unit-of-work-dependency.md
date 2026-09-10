@@ -50,7 +50,7 @@ Unit 3 must:
 
 - Automate the same checks that work locally.
 - Avoid introducing host-specific runtime dependencies.
-- Document rather than execute external deployment.
+- Execute the user-added static deployment only after integrated verification and explicit action-time approval; do not add a runtime service.
 - Preserve the inactive contribution boundary until separately authorized.
 
 ## Shared Coordination Points
@@ -105,7 +105,7 @@ Unit 3 must:
 - Do not start a dependent unit before the preceding unit's code-generation checkpoint is approved.
 - If a Unit 1 contract changes during Unit 2, update its schema tests and all affected consumers in the same approved unit interaction.
 - If Unit 3 automation exposes a defect, fix it in the owning unit's code and rerun downstream checks rather than masking it in CI.
-- External rollback is not required during construction because nothing is deployed.
+- Before deployment, rollback is local through Git. After the separately confirmed release, rollback uses a known-good Git commit or Cloudflare deployment while the failing release is investigated.
 
 ## Risk Ownership
 

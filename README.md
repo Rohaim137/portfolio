@@ -1,104 +1,128 @@
-# Rohaim Portfolio
+# Muhammad Rohaim — Portfolio
 
 A static-first personal portfolio built with Next.js, React, TypeScript, Tailwind CSS, and
-repository-authored Markdown or MDX content.
+repository-authored Markdown or MDX. The site now includes a CV-backed profile, verified project
+summaries, clearly labelled demonstration content, accessible portfolio interactions, guarded
+owner-authoring workflows, automated quality checks, and deployment preparation.
 
-The current implementation contains the validated content and metadata foundation. Visitor-facing
-portfolio routes and demonstration content are added in the next unit; deployment preparation is a
-later unit.
+No database, runtime CMS, analytics tracker, visitor account, or contact backend is required. The
+production site has not been deployed.
 
 ## Requirements
 
-- Node.js 22.12 or newer (Node.js 24 LTS is verified)
+- Node.js 22.12 or newer; Node.js 24 LTS is verified
 - npm 11 or newer
 
-## Local commands
+Run commands from this project directory: the folder containing this README and `package.json`.
+
+## Run locally
 
 ```powershell
-npm ci
-npm run dev
+npm.cmd ci
+npm.cmd run dev
 ```
 
-Open `http://localhost:3000` while the development server is running.
+Open `http://localhost:3000`. Using `npm.cmd` avoids the Windows PowerShell execution-policy error
+that can block `npm.ps1`; it does not weaken or change that policy.
 
-Quality and production commands:
+## Verify the project
+
+The canonical fail-fast command checks formatting, zero-warning lint, strict types, coverage, the
+static production build, Pages CMS parity, artifact integrity, public-document safety, and
+detectable design constraints:
 
 ```powershell
-npm run format:check
-npm run lint
-npm run typecheck
-npm test
-npm run test:coverage
-npm run build
+npm.cmd run verify
 ```
 
-The static production artifact is written to `out/`.
-
-The capacity benchmark is deliberately opt-in because it creates 750 temporary content records and
-runs a production build:
+Install the pinned Chromium build once, then run the real-browser journeys:
 
 ```powershell
-npm run benchmark:content -- --run
+npm.cmd run playwright:install
+npm.cmd run test:e2e
 ```
 
-## Content locations
+The capacity benchmark is deliberately opt-in because it generates 750 temporary records and runs a
+production build:
 
+```powershell
+npm.cmd run benchmark:content -- --run
+```
+
+The static artifact is written to `out/`. Individual checks remain available through `format:check`,
+`lint`, `typecheck`, `test`, `test:coverage`, `build`, and the `audit:*` scripts in `package.json`.
+
+## Published routes
+
+- `/` — portfolio overview using CV-backed identity and professional summary
+- `/about/` — skills, education, work timeline, and replaceable profile details
+- `/projects/` — three verified summaries plus three visibly labelled demonstration projects
+- `/projects/[slug]/` — statically generated case studies and accessible media
+- `/blog/` and `/blog/[slug]/` — three visibly labelled demonstration articles
+- `/reading/` — truthful empty state until genuine reading records are published
+- `/docs/` — truthful unavailable state until a document is deliberately made public
+- `/robots.txt` and `/sitemap.xml` — static discovery output
+
+The site configuration intentionally leaves unsupported personal details pending. The X destination,
+for example, remains visible as a pending link instead of inventing an account.
+
+## Update profile and content
+
+- Profile and social configuration: `src/config/site.ts`
 - Projects: `content/projects/*.md` or `content/projects/*.mdx`
 - Posts: `content/blog/*.md` or `content/blog/*.mdx`
 - Reading records: `content/reading/*.md` or `content/reading/*.mdx`
-- Site and social configuration: `src/config/site.ts`
-- Explicit public-document manifest: `src/config/documents.ts`
-- Public document assets: `public/documents/`
+- Public-document allowlist: `src/config/documents.ts`
+- Public document files: `public/documents/`
+- Project media: `public/media/projects/`
 
-Every content filename stem must exactly match its lowercase kebab-case `slug`. Required front
-matter differs by collection and is validated before route models are released. Errors are reported
-together with stable codes, source paths, and field paths.
+Every content filename stem must exactly match its lowercase kebab-case `slug`. `draft` and `demo`
+are independent: drafts do not publish, while demos remain public with an explicit disclosure. Never
+turn a demo into an owner claim merely by changing `demo: false`; replace its title, summary, body,
+dates, media, and optional destinations with verified facts.
 
-## Drafts and demonstration content
+Complete local, direct-GitHub, and Pages CMS instructions—including schemas, review checks, public
+documents, failure recovery, and safe demo replacement—are in
+[`docs/authoring.md`](docs/authoring.md).
 
-`draft` and `demo` are independent Boolean fields:
+## Optional owner editor
 
-- `draft: true` excludes a record from ordinary lists and static detail routes. Production builds
-  reject attempts to enable draft inclusion.
-- `demo: true` keeps the record public but preserves a presentation-visible demonstration state.
-- To replace a demonstration with genuine work, update its factual content and set `demo: false`.
-- A draft demonstration remains excluded because `demo` never overrides `draft`.
+`.pages.yml` configures Pages CMS as an optional repository editor for projects, posts, reading
+metadata, and bounded project media. It does not add an `/admin` route or runtime CMS to the public
+site. It cannot edit site identity, workflows, scripts, public documents, or deployment settings,
+and it cannot trigger deployment actions. Reading bodies stay read-only until a public
+reading-detail route exists.
 
-No minimum demonstration count is enforced by the ongoing content pipeline.
+To use it, sign in to Pages CMS with the GitHub account that can edit this repository, select the
+repository, create or edit a draft, review the resulting Git change, and let the same repository
+verification run before merging. Repository files and pull requests remain the source of truth.
 
-## Publishing content
+## CI and deployment preparation
 
-1. Add a Markdown or MDX file to the appropriate collection.
-2. Give it an explicit slug matching the filename.
-3. Fill every required front-matter field and use real ISO `YYYY-MM-DD` calendar dates.
-4. Use HTTPS for external web destinations.
-5. Run `npm run typecheck`, `npm test`, and `npm run build`.
-6. Review the generated `out/` directory before committing and deploying.
+`.github/workflows/quality.yml` runs the canonical verifier, benchmark, artifact handoff, and
+browser journeys for pull requests, main-branch pushes, or a manual diagnostic run. It has read-only
+repository permission and contains no deployment capability or secret reference.
 
-MDX is curated. Content cannot use import/export statements, scripts, raw HTML, executable URL
-protocols, inline event handlers, arbitrary JavaScript expressions, or undeclared components.
+`.github/workflows/deploy-pages.yml` is a separate manual-only Cloudflare Pages Direct Upload path.
+It requires an exact commit SHA, approved HTTPS production origin, existing isolated Pages project,
+the `DEPLOY` confirmation value, protected production environment, and environment-scoped Cloudflare
+credentials. It has not been dispatched or connected to an external account.
 
-## Public documents and secrets
+The complete setup, preflight, smoke-test, evidence, and rollback procedure is in
+[`docs/deployment.md`](docs/deployment.md). The final production upload must wait for Build and Test
+completion and a fresh, explicit permission request immediately before deployment.
 
-Files under `public/` are copied into the downloadable static artifact. Never place private records,
-credentials, access tokens, salary information, identity documents, or other sensitive material
-there.
+## Production origin and public-file safety
 
-A document is listed only when it appears in `src/config/documents.ts` and the corresponding file
-exists beneath `public/documents/`. Files are never published by directory enumeration.
-
-Environment and secret files are excluded by `.gitignore`. GitHub contribution data is optional,
-read-only generated data; the application performs no authenticated or browser-time GitHub fetch.
-
-## Production origin
-
-Canonical URLs, absolute social-image URLs, and sitemap entries remain disabled until the production
-hostname is approved. Configure it only at build time with an HTTPS origin:
+Canonical URLs and absolute social-image URLs remain disabled until an approved hostname is supplied
+at build time:
 
 ```powershell
 $env:NEXT_PUBLIC_SITE_URL = "https://your-approved-domain.example"
-npm run build
+npm.cmd run build
 ```
 
-Without this setting, the local build remains valid and does not emit misleading localhost
-canonicals.
+Without that variable, local builds deliberately emit no localhost canonical. Everything beneath
+`public/` is copied into the downloadable static artifact, so never place credentials, tokens,
+identity documents, private records, or other sensitive material there. A document appears on the
+site only when both its allowlist entry and public file exist.

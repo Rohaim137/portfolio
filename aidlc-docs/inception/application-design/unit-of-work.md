@@ -125,7 +125,7 @@ Build the complete responsive editorial interface using Unit 1 contracts and ser
 
 ### Objective
 
-Make the integrated application maintainable, repeatably verifiable, authorable, and ready for a separately approved static deployment.
+Make the integrated application maintainable, repeatably verifiable, authorable, and deployable to Cloudflare Pages through a controlled, separately confirmed release action.
 
 ### Responsibilities
 
@@ -135,7 +135,7 @@ Make the integrated application maintainable, repeatably verifiable, authorable,
 - Add practical automated anti-slop checks for prohibited colors and detectable markup or copy patterns.
 - Define quality CI for formatting, linting, type checking, tests, and static build.
 - Preserve a dormant, secure future GitHub contribution-fetch boundary and document secret handling without enabling the heatmap.
-- Prepare Cloudflare Pages build settings and deployment instructions without connecting or publishing externally.
+- Prepare Cloudflare Pages build settings and deployment instructions, then perform a controlled deployment after integrated verification and explicit action-time approval.
 - Verify static artifact integrity, absence of secrets, zero mandatory runtime cost, and host portability.
 
 ### Owned user story
@@ -165,7 +165,7 @@ Unit 3 validates the integrated acceptance criteria for every story and complete
 - Authoring and public-file guidance is complete.
 - CI definitions match the verified local commands.
 - Static artifact contains no secret or unintended private document.
-- Cloudflare Pages preparation is documented but no external deployment occurs.
+- Cloudflare Pages preparation is documented, integrated verification passes, and the separately confirmed release is deployed and smoke-tested.
 
 ### Construction stages
 

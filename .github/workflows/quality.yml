@@ -1,0 +1,93 @@
+name: Portfolio quality
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-audit:
+    name: Build and repository audits
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the selected commit
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run the fail-fast quality sequence
+        run: npm run verify
+
+      - name: Run the 750-record capacity benchmark
+        run: npm run benchmark:content -- --run
+
+      - name: Recheck the exact static artifact
+        run: npm run audit:artifact
+
+      - name: Upload the static artifact for browser verification
+        uses: actions/upload-artifact@v6
+        with:
+          name: static-site-${{ github.sha }}
+          path: out
+          if-no-files-found: error
+          retention-days: 3
+
+  browser:
+    name: Browser journeys
+    needs: build-and-audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out test and server sources
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Download the exact static artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: static-site-${{ github.sha }}
+          path: out
+
+      - name: Recheck the transferred artifact
+        run: npm run audit:artifact
+
+      - name: Install pinned Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser journeys
+        run: npm run test:e2e
+
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: browser-failure-${{ github.sha }}
+          path: |
+            .playwright/test-results
+            .playwright/report
+          if-no-files-found: ignore
+          retention-days: 3
